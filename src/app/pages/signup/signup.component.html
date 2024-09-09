@@ -1,0 +1,75 @@
+<div class="flex h-screen justify-center items-center bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+      <h2 class="text-3xl font-bold text-center text-purple-600 mb-4">Welcome to Dazzupi</h2>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700" for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+            placeholder="example@gmail.com"
+          />
+          <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="text-red-500 text-sm">
+            Valid email is required.
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700" for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+            placeholder="********"
+          />
+          <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="text-red-500 text-sm">
+            Password is required and must be at least 6 characters.
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700" for="confirmPassword">Retype Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+            placeholder="********"
+          />
+          <div
+            *ngIf="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched"
+            class="text-red-500 text-sm"
+          >
+            Please retype your password.
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700" for="upiId">UPI ID</label>
+          <input
+            type="text"
+            id="upiId"
+            formControlName="upiId"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+            placeholder="user@bank"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700" for="phone">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            formControlName="phone"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+            placeholder="1234567890"
+          />
+        </div>
+        <button type="submit" class="w-full p-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Sign Up</button>
+      </form>
+      <div class="text-center mt-4">
+        <span class="text-sm text-gray-600">Already have an account?</span>
+        <a [routerLink]="['/login']" class="text-sm text-purple-600 hover:underline">Login</a>
+      </div>
+    </div>
+  </div>
+  
